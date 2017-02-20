@@ -1,0 +1,5 @@
+### Xojo
+Builds\ -*
+*.debug
+*.xojo_uistate
+*.obsolete_*
