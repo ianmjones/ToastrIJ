@@ -3,7 +3,7 @@ Begin WebPage MainPage
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   400
+   Height          =   600
    HelpTag         =   ""
    HorizontalCenter=   0
    ImplicitInstance=   True
@@ -24,7 +24,7 @@ Begin WebPage MainPage
    Top             =   0
    VerticalCenter  =   0
    Visible         =   True
-   Width           =   600
+   Width           =   800
    ZIndex          =   1
    _DeclareLineRendered=   False
    _HorizontalPercent=   0.0
@@ -44,7 +44,7 @@ Begin WebPage MainPage
       HorizontalCenter=   0
       HorizontalPosition=   "0"
       Index           =   -2147483648
-      Left            =   20
+      Left            =   120
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   True
@@ -55,7 +55,7 @@ Begin WebPage MainPage
       Scope           =   2
       Style           =   "-1"
       TabOrder        =   -1
-      Top             =   20
+      Top             =   120
       VerticalCenter  =   0
       VerticalPosition=   "0"
       Visible         =   True
@@ -77,7 +77,7 @@ Begin WebPage MainPage
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   150
+      Left            =   100
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   True
@@ -89,10 +89,10 @@ Begin WebPage MainPage
       ScrollbarsVisible=   0
       Style           =   "488470527"
       TabOrder        =   0
-      Top             =   12
+      Top             =   112
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   300
+      Width           =   600
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -114,6 +114,16 @@ End
 	#tag Event
 		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)
 		  Toastr.Display Message, Type, Title
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub VerticalPositionChanged(Position As ToastrIJ.VerticalPosition)
+		  Toastr.VerticalPosition = Position
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub HorizontalPositionChanged(Position As ToastrIJ.HorizontalPosition)
+		  Toastr.HorizontalPosition = Position
 		End Sub
 	#tag EndEvent
 #tag EndEvents

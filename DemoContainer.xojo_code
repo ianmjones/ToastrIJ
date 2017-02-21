@@ -19,7 +19,7 @@ Begin WebContainer DemoContainer
    Top             =   0
    VerticalCenter  =   0
    Visible         =   True
-   Width           =   300
+   Width           =   600
    ZIndex          =   1
    _DeclareLineRendered=   False
    _HorizontalPercent=   0.0
@@ -39,13 +39,13 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   130
-      LockBottom      =   False
+      Left            =   430
+      LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   False
       LockRight       =   True
-      LockTop         =   True
+      LockTop         =   False
       LockVertical    =   False
       Scope           =   0
       Style           =   "169480191"
@@ -72,7 +72,7 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
+      Left            =   320
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -108,8 +108,8 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
-      LockBottom      =   False
+      Left            =   320
+      LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   True
@@ -145,7 +145,7 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
+      Left            =   320
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
@@ -185,7 +185,7 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
+      Left            =   320
       LimitText       =   0
       LockBottom      =   False
       LockedInPosition=   False
@@ -224,14 +224,14 @@ Begin WebContainer DemoContainer
       HorizontalCenter=   0
       Index           =   -2147483648
       InitialValue    =   ""
-      Left            =   20
+      Left            =   320
       ListIndex       =   0
-      LockBottom      =   False
+      LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
-      LockTop         =   True
+      LockTop         =   False
       LockVertical    =   False
       Scope           =   0
       Style           =   "-1"
@@ -259,13 +259,13 @@ Begin WebContainer DemoContainer
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
-      Left            =   20
-      LockBottom      =   False
+      Left            =   320
+      LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   True
-      LockTop         =   True
+      LockTop         =   False
       LockVertical    =   False
       Multiline       =   False
       Scope           =   0
@@ -312,7 +312,7 @@ Begin WebContainer DemoContainer
       Top             =   20
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   260
+      Width           =   560
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -323,12 +323,160 @@ Begin WebContainer DemoContainer
       _OpenEventFired =   False
       _VerticalPercent=   0.0
    End
+   Begin WebLabel VerticalPositionLabel
+      Cursor          =   1
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   0
+      Text            =   "Vertical Position"
+      TextAlign       =   0
+      Top             =   74
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
+   Begin WebPopupMenu VerticalPositionInput
+      Cursor          =   0
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      InitialValue    =   ""
+      Left            =   20
+      ListIndex       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   3
+      Top             =   96
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
+   Begin WebLabel HorizontalPositionLabel
+      Cursor          =   1
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   0
+      Text            =   "Vertical Position"
+      TextAlign       =   0
+      Top             =   130
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
+   Begin WebPopupMenu HorizontalPositionInput
+      Cursor          =   0
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      InitialValue    =   ""
+      Left            =   20
+      ListIndex       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   3
+      Top             =   152
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
 End
 #tag EndWebPage
 
 #tag WindowCode
 	#tag Hook, Flags = &h0
 		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event HorizontalPositionChanged(Position As ToastrIJ.HorizontalPosition)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event VerticalPositionChanged(Position As ToastrIJ.VerticalPosition)
 	#tag EndHook
 
 
@@ -354,6 +502,48 @@ End
 		  if me.ListIndex < 0 then
 		    me.ListIndex = 0
 		  end if
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events VerticalPositionInput
+	#tag Event
+		Sub Shown()
+		  dim positions as Dictionary = ToastrIJ.VerticalPositionNames
+		  
+		  for each position as ToastrIJ.VerticalPosition in positions.Keys
+		    me.AddRow positions.Value(position)
+		    me.RowTag(me.ListCount - 1) = position
+		  next
+		  
+		  if me.ListIndex < 0 then
+		    me.ListIndex = 0
+		  end if
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectionChanged()
+		  RaiseEvent VerticalPositionChanged(me.RowTag(me.ListIndex))
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events HorizontalPositionInput
+	#tag Event
+		Sub Shown()
+		  dim positions as Dictionary = ToastrIJ.HorizontalPositionNames
+		  
+		  for each position as ToastrIJ.HorizontalPosition in positions.Keys
+		    me.AddRow positions.Value(position)
+		    me.RowTag(me.ListCount - 1) = position
+		  next
+		  
+		  if me.ListIndex < 0 then
+		    me.ListIndex = 0
+		  end if
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub SelectionChanged()
+		  RaiseEvent HorizontalPositionChanged(me.RowTag(me.ListIndex))
 		End Sub
 	#tag EndEvent
 #tag EndEvents

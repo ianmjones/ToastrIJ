@@ -91,6 +91,19 @@ Inherits WebControlWrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
+		Shared Function HorizontalPositionNames() As Dictionary
+		  dim positions as new Dictionary
+		  
+		  positions.Value(ToastrIJ.HorizontalPosition.Right) = "Right"
+		  positions.Value(ToastrIJ.HorizontalPosition.Center) = "Center"
+		  positions.Value(ToastrIJ.HorizontalPosition.Left) = "Left"
+		  positions.Value(ToastrIJ.HorizontalPosition.Full) = "Full"
+		  
+		  return positions
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
 		Shared Function HTMLHeader(CurrentSession as WebSession) As String
 		  // Make sure the libraries only get added to the header once.
 		  dim sa() as string
@@ -150,6 +163,17 @@ Inherits WebControlWrapper
 		  types.Value(Type.Error) = "Error"
 		  
 		  return types
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Shared Function VerticalPositionNames() As Dictionary
+		  dim positions as new Dictionary
+		  
+		  positions.Value(ToastrIJ.VerticalPosition.Top) = "Top"
+		  positions.Value(ToastrIJ.VerticalPosition.Bottom) = "Bottom"
+		  
+		  return positions
 		End Function
 	#tag EndMethod
 
