@@ -108,6 +108,8 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
+#tag Events Toastr
+#tag EndEvents
 #tag Events DemoArea
 	#tag Event
 		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)

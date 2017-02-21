@@ -1,6 +1,28 @@
 #tag Class
 Protected Class ToastrIJ
 Inherits WebControlWrapper
+	#tag Method, Flags = &h21
+		Private Function CleanForJS(Source As String) As String
+		  // Clean up for JavaScript and injections
+		    
+		  // Literals
+		  Source = ReplaceAll(Source, "\b", "\\b")
+		  Source = ReplaceAll(Source, "\f", "\\f")
+		  Source = ReplaceAll(Source, "\n", "\\n")
+		  Source = ReplaceAll(Source, "\r", "\\r")
+		  Source = ReplaceAll(Source, "\t", "\\t")
+		  
+		  // Line breaks
+		  Source = ReplaceLineEndings(Source, "<br />")
+		  
+		  // Escape quotes
+		  Source = ReplaceAll(Source, """", "\""")
+		  Source = ReplaceAll(Source, "'", "\'")
+		  
+		  return Source
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "")
 		  dim toastrType as String = "info"
@@ -18,10 +40,10 @@ Inherits WebControlWrapper
 		  end select
 		  
 		  
-		  dim js as String = "toastr." + toastrType + "('" + Message.Trim.ReplaceAll(EndOfLine, "<br/>") + "'"
+		  dim js as String = "toastr." + toastrType + "('" + PrepareMessage(Message) + "'"
 		  
 		  if Title.Trim.Len > 0 then
-		    js = js + ", '" + Title.Trim + "'"
+		    js = js + ", '" + PrepareTitle(Title) + "'"
 		  end if
 		  
 		  js = js + ");"
@@ -52,6 +74,34 @@ Inherits WebControlWrapper
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function PrepareMessage(Message As String) As String
+		  Message = CleanForJS(Message.Trim)
+		  
+		  dim modifiedMessage as String = Message
+		  
+		  if RaiseEvent MessageToDisplay(modifiedMessage) then
+		    Message = modifiedMessage
+		  end if
+		  
+		  return Message
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function PrepareTitle(Title As String) As String
+		  Title = CleanForJS(Title.Trim)
+		  
+		  dim modifiedTitle as String = Title
+		  
+		  if RaiseEvent TitleToDisplay(modifiedTitle) then
+		    Title = modifiedTitle
+		  end if
+		  
+		  return Title
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Shared Function TypeNames() As Dictionary
 		  dim types as new Dictionary
@@ -64,6 +114,15 @@ Inherits WebControlWrapper
 		  return types
 		End Function
 	#tag EndMethod
+
+
+	#tag Hook, Flags = &h0
+		Event MessageToDisplay(ByRef Message As String) As Boolean
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TitleToDisplay(ByRef Title As String) As Boolean
+	#tag EndHook
 
 
 	#tag Constant, Name = JavascriptNamespace, Type = String, Dynamic = False, Default = \"IMJ.ToastrIJ", Scope = Private
