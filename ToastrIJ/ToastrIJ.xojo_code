@@ -4,7 +4,7 @@ Inherits WebControlWrapper
 	#tag Method, Flags = &h21
 		Private Function CleanForJS(Source As String) As String
 		  // Clean up for JavaScript and injections
-		    
+		  
 		  // Literals
 		  Source = ReplaceAll(Source, "\b", "\\b")
 		  Source = ReplaceAll(Source, "\f", "\\f")
@@ -23,8 +23,46 @@ Inherits WebControlWrapper
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function DerivePositionClass() As String
+		  dim positionClass as String = "toast"
+		  
+		  select case VerticalPosition
+		  case ToastrIJ.VerticalPosition.Bottom
+		    positionClass = positionClass + "-bottom"
+		    
+		  else
+		    positionClass = positionClass + "-top"
+		    
+		  end select
+		  
+		  select case HorizontalPosition
+		  case ToastrIJ.HorizontalPosition.Left
+		    positionClass = positionClass + "-left"
+		    
+		  case ToastrIJ.HorizontalPosition.Center
+		    positionClass = positionClass + "-center"
+		    
+		  case ToastrIJ.HorizontalPosition.Full
+		    positionClass = positionClass + "-full-width"
+		    
+		  else
+		    positionClass = positionClass + "-right"
+		    
+		  end select
+		  
+		  return positionClass
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "")
+		  dim js as String
+		  
+		  // Set position of the notification.
+		  js = js + "toastr.options.positionClass = '" + DerivePositionClass + "';"
+		  
+		  // Set type of the notification.
 		  dim toastrType as String = "info"
 		  
 		  select case Type
@@ -39,8 +77,8 @@ Inherits WebControlWrapper
 		    
 		  end select
 		  
-		  
-		  dim js as String = "toastr." + toastrType + "('" + PrepareMessage(Message) + "'"
+		  // Construct notification.
+		  js = js + "toastr." + toastrType + "('" + PrepareMessage(Message) + "'"
 		  
 		  if Title.Trim.Len > 0 then
 		    js = js + ", '" + PrepareTitle(Title) + "'"
@@ -125,6 +163,15 @@ Inherits WebControlWrapper
 	#tag EndHook
 
 
+	#tag Property, Flags = &h0
+		HorizontalPosition As ToastrIJ.HorizontalPosition
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		VerticalPosition As ToastrIJ.VerticalPosition
+	#tag EndProperty
+
+
 	#tag Constant, Name = JavascriptNamespace, Type = String, Dynamic = False, Default = \"IMJ.ToastrIJ", Scope = Private
 	#tag EndConstant
 
@@ -135,6 +182,13 @@ Inherits WebControlWrapper
 	#tag EndConstant
 
 
+	#tag Enum, Name = HorizontalPosition, Type = Integer, Flags = &h0
+		Right
+		  Center
+		  Left
+		Full
+	#tag EndEnum
+
 	#tag Enum, Name = Type, Type = Integer, Flags = &h0
 		Info
 		  Success
@@ -142,13 +196,16 @@ Inherits WebControlWrapper
 		Error
 	#tag EndEnum
 
+	#tag Enum, Name = VerticalPosition, Type = Integer, Flags = &h0
+		Top
+		Bottom
+	#tag EndEnum
+
 
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="Cursor"
-			Visible=true
 			Group="Behavior"
-			InitialValue="0"
 			Type="Integer"
 			EditorType="Enum"
 			#tag EnumValues
@@ -178,15 +235,13 @@ Inherits WebControlWrapper
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Enabled"
-			Visible=true
 			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
 			Visible=true
-			Group="Behavior"
+			Group="Position"
 			InitialValue="400"
 			Type="Integer"
 		#tag EndViewProperty
@@ -202,6 +257,19 @@ Inherits WebControlWrapper
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="HorizontalPosition"
+			Visible=true
+			Group="Notification Position"
+			Type="ToastrIJ.HorizontalPosition"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Right"
+				"1 - Center"
+				"2 - Left"
+				"3 - Full"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Index"
 			Visible=true
 			Group="ID"
@@ -210,51 +278,37 @@ Inherits WebControlWrapper
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
-			Visible=true
 			Group="Position"
-			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockBottom"
-			Visible=true
 			Group="Behavior"
-			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockHorizontal"
-			Visible=true
 			Group="Behavior"
-			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockLeft"
-			Visible=true
 			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockRight"
-			Visible=true
 			Group="Behavior"
-			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockTop"
-			Visible=true
 			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="LockVertical"
-			Visible=true
 			Group="Behavior"
-			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -271,16 +325,12 @@ Inherits WebControlWrapper
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TabOrder"
-			Visible=true
 			Group="Behavior"
-			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Top"
-			Visible=true
 			Group="Position"
-			InitialValue="0"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
@@ -289,16 +339,25 @@ Inherits WebControlWrapper
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
-			Name="Visible"
+			Name="VerticalPosition"
 			Visible=true
+			Group="Notification Position"
+			Type="ToastrIJ.VerticalPosition"
+			EditorType="Enum"
+			#tag EnumValues
+				"0 - Top"
+				"1 - Bottom"
+			#tag EndEnumValues
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="Visible"
 			Group="Behavior"
-			InitialValue="True"
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
 			Visible=true
-			Group="Behavior"
+			Group="Position"
 			InitialValue="300"
 			Type="Integer"
 		#tag EndViewProperty

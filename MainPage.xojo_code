@@ -42,6 +42,7 @@ Begin WebPage MainPage
       Height          =   400
       HelpTag         =   ""
       HorizontalCenter=   0
+      HorizontalPosition=   "0"
       Index           =   -2147483648
       Left            =   20
       LockBottom      =   False
@@ -56,6 +57,7 @@ Begin WebPage MainPage
       TabOrder        =   -1
       Top             =   20
       VerticalCenter  =   0
+      VerticalPosition=   "0"
       Visible         =   True
       Width           =   300
       ZIndex          =   1
@@ -108,8 +110,6 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
-#tag Events Toastr
-#tag EndEvents
 #tag Events DemoArea
 	#tag Event
 		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)
