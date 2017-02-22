@@ -70,14 +70,29 @@ Inherits WebControlWrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "")
+		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Sticky As Boolean = False)
+		  Display(Message, Type, "", Sticky)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "", Sticky As Boolean = False)
 		  dim js as String
 		  
 		  // Set position of the notification.
 		  js = js + "toastr.options.positionClass = '" + DerivePositionClass + "';"
 		  
 		  // Should notifications include a close button?
-		  js = js + "toastr.options.closeButton = " + Str(CloseButton).Lowercase + ";"
+		  js = js + "toastr.options.closeButton = " + Str(CloseButton or Sticky).Lowercase + ";"
+		  
+		  // Should notification stick around?
+		  if Sticky then
+		    js = js + "toastr.options.timeOut = 0;"
+		    js = js + "toastr.options.extendedTimeOut = 0;"
+		  else
+		    js = js + "toastr.options.timeOut = " + Str(TimeOut) + ";"
+		    js = js + "toastr.options.extendedTimeOut = " + Str(ExtendedTimeOut) + ";"
+		  end if
 		  
 		  // Set type of the notification.
 		  dim toastrType as String = "info"
@@ -209,7 +224,15 @@ Inherits WebControlWrapper
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		ExtendedTimeOut As Integer = 1000
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		HorizontalPosition As ToastrIJ.HorizontalPosition
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		TimeOut As Integer = 5000
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -288,6 +311,12 @@ Inherits WebControlWrapper
 			Name="Enabled"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="ExtendedTimeOut"
+			Group="Behavior"
+			InitialValue="1000"
+			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Height"
@@ -377,6 +406,12 @@ Inherits WebControlWrapper
 		#tag ViewProperty
 			Name="TabOrder"
 			Group="Behavior"
+			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="TimeOut"
+			Group="Behavior"
+			InitialValue="5000"
 			Type="Integer"
 		#tag EndViewProperty
 		#tag ViewProperty

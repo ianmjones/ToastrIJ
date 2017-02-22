@@ -3,7 +3,7 @@ Begin WebContainer DemoContainer
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   376
+   Height          =   410
    HelpTag         =   ""
    HorizontalCenter=   0
    Index           =   -2147483648
@@ -50,7 +50,7 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "169480191"
       TabOrder        =   4
-      Top             =   320
+      Top             =   354
       VerticalCenter  =   0
       Visible         =   True
       Width           =   150
@@ -76,7 +76,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
@@ -112,7 +112,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
@@ -229,7 +229,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
       LockVertical    =   False
@@ -263,7 +263,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   True
+      LockLeft        =   False
       LockRight       =   True
       LockTop         =   False
       LockVertical    =   False
@@ -485,7 +485,7 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "1883701247"
       TabOrder        =   4
-      Top             =   320
+      Top             =   354
       VerticalCenter  =   0
       Visible         =   True
       Width           =   150
@@ -524,7 +524,48 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   260
       ZIndex          =   1
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
+   End
+   Begin WebCheckbox StickyCheckbox
+      Caption         =   "Sticky"
+      Cursor          =   1
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   "Make notification stick around until closed."
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   320
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   False
+      LockRight       =   True
+      LockTop         =   False
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   5
+      Top             =   320
+      Value           =   False
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
    End
 End
 #tag EndWebPage
@@ -539,7 +580,7 @@ End
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)
+		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -556,7 +597,7 @@ End
 #tag Events DisplayButton
 	#tag Event
 		Sub Action()
-		  RaiseEvent DisplayMessage MessageInput.Text, TypeInput.RowTag(TypeInput.ListIndex), TitleInput.Text
+		  RaiseEvent DisplayMessage MessageInput.Text, TypeInput.RowTag(TypeInput.ListIndex), TitleInput.Text, StickyCheckbox.Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents
@@ -631,6 +672,8 @@ End
 		  RaiseEvent CloseButtonChanged(me.Value)
 		End Sub
 	#tag EndEvent
+#tag EndEvents
+#tag Events StickyCheckbox
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
