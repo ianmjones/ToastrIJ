@@ -131,6 +131,11 @@ End
 		  Toastr.Clear(WithAnimation)
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub CloseButtonChanged(Value As Boolean)
+		  Toastr.CloseButton = Value
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty

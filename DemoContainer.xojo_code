@@ -490,14 +490,41 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   150
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
+   End
+   Begin WebCheckbox CloseButtonCheckbox
+      Caption         =   "Close Button"
+      Cursor          =   1
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   "Add a close button to all notifications."
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "-1"
+      TabOrder        =   5
+      Top             =   186
+      Value           =   False
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _NeedsRendering =   True
    End
 End
 #tag EndWebPage
@@ -505,6 +532,10 @@ End
 #tag WindowCode
 	#tag Hook, Flags = &h0
 		Event ClearMessages(WithAnimation As Boolean = True)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event CloseButtonChanged(Value As Boolean)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -591,6 +622,13 @@ End
 	#tag Event
 		Sub Action()
 		  RaiseEvent ClearMessages
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events CloseButtonCheckbox
+	#tag Event
+		Sub ValueChanged()
+		  RaiseEvent CloseButtonChanged(me.Value)
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -76,6 +76,9 @@ Inherits WebControlWrapper
 		  // Set position of the notification.
 		  js = js + "toastr.options.positionClass = '" + DerivePositionClass + "';"
 		  
+		  // Should notifications include a close button?
+		  js = js + "toastr.options.closeButton = " + Str(CloseButton).Lowercase + ";"
+		  
 		  // Set type of the notification.
 		  dim toastrType as String = "info"
 		  
@@ -202,6 +205,10 @@ Inherits WebControlWrapper
 
 
 	#tag Property, Flags = &h0
+		CloseButton As Boolean = False
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		HorizontalPosition As ToastrIJ.HorizontalPosition
 	#tag EndProperty
 
@@ -241,6 +248,12 @@ Inherits WebControlWrapper
 
 
 	#tag ViewBehavior
+		#tag ViewProperty
+			Name="CloseButton"
+			Group="Behavior"
+			InitialValue="False"
+			Type="Boolean"
+		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Cursor"
 			Group="Behavior"
