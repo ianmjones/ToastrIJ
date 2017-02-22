@@ -126,6 +126,11 @@ End
 		  Toastr.HorizontalPosition = Position
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub ClearMessages(WithAnimation As Boolean = True)
+		  Toastr.Clear(WithAnimation)
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty

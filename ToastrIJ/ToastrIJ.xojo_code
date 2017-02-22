@@ -23,6 +23,20 @@ Inherits WebControlWrapper
 		End Function
 	#tag EndMethod
 
+	#tag Method, Flags = &h0
+		Sub Clear(WithAnimation As Boolean = True)
+		  dim js as String
+		  
+		  if WithAnimation then
+		    js = "toastr.clear();"
+		  else
+		    js = "toastr.remove();"
+		  end if
+		  
+		  ExecuteJavaScript js
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Function DerivePositionClass() As String
 		  dim positionClass as String = "toast"

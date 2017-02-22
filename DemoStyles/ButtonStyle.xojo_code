@@ -13,6 +13,7 @@ Inherits WebStyle
 		text-color=333333FF
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
+		misc-background=solid CCCCCCFF
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
 		text-color=666666FF

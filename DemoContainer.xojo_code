@@ -350,14 +350,14 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   260
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebPopupMenu VerticalPositionInput
       Cursor          =   0
@@ -379,19 +379,20 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "0"
       TabOrder        =   3
+      Text            =   ""
       Top             =   96
       VerticalCenter  =   0
       Visible         =   True
       Width           =   260
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebLabel HorizontalPositionLabel
       Cursor          =   1
@@ -420,14 +421,14 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   260
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebPopupMenu HorizontalPositionInput
       Cursor          =   0
@@ -449,10 +450,45 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "0"
       TabOrder        =   3
+      Text            =   ""
       Top             =   152
       VerticalCenter  =   0
       Visible         =   True
       Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
+      _NeedsRendering =   True
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
+   End
+   Begin WebButton ClearButton
+      AutoDisable     =   False
+      Caption         =   "Clear Messages"
+      Cursor          =   0
+      Enabled         =   True
+      Height          =   36
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   False
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "1883701247"
+      TabOrder        =   4
+      Top             =   320
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   150
       ZIndex          =   1
       _DeclareLineRendered=   "False"
       _HorizontalPercent=   "0.0"
@@ -467,6 +503,10 @@ End
 #tag EndWebPage
 
 #tag WindowCode
+	#tag Hook, Flags = &h0
+		Event ClearMessages(WithAnimation As Boolean = True)
+	#tag EndHook
+
 	#tag Hook, Flags = &h0
 		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String)
 	#tag EndHook
@@ -544,6 +584,13 @@ End
 	#tag Event
 		Sub SelectionChanged()
 		  RaiseEvent HorizontalPositionChanged(me.RowTag(me.ListIndex))
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ClearButton
+	#tag Event
+		Sub Action()
+		  RaiseEvent ClearMessages
 		End Sub
 	#tag EndEvent
 #tag EndEvents

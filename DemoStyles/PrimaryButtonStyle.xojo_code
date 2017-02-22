@@ -6,6 +6,7 @@ Inherits ButtonStyle
 		text-color=FFFFFFFF
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
+		misc-background=solid 77AADDFF
 	#tag EndWebStyleStateGroup
 	#tag WebStyleStateGroup
 		text-color=DDDDDDFF
