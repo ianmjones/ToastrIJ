@@ -40,6 +40,7 @@ Begin WebPage MainPage
       CloseButton     =   False
       Cursor          =   0
       Enabled         =   True
+      ExtendedTimeOut =   1000
       Height          =   400
       HelpTag         =   ""
       HorizontalCenter=   0
@@ -56,6 +57,7 @@ Begin WebPage MainPage
       Scope           =   2
       Style           =   "-1"
       TabOrder        =   -1
+      TimeOut         =   5000
       Top             =   120
       VerticalCenter  =   0
       VerticalPosition=   "0"

@@ -273,7 +273,8 @@ Inherits WebControlWrapper
 	#tag ViewBehavior
 		#tag ViewProperty
 			Name="CloseButton"
-			Group="Behavior"
+			Visible=true
+			Group="Notification Options"
 			InitialValue="False"
 			Type="Boolean"
 		#tag EndViewProperty
