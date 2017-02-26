@@ -49,7 +49,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "169480191"
-      TabOrder        =   4
+      TabOrder        =   5
       Top             =   354
       VerticalCenter  =   0
       Visible         =   True
@@ -378,7 +378,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "0"
-      TabOrder        =   3
+      TabOrder        =   6
       Text            =   ""
       Top             =   96
       VerticalCenter  =   0
@@ -394,7 +394,7 @@ Begin WebContainer DemoContainer
       _OpenEventFired =   False
       _VerticalPercent=   0.0
    End
-   Begin WebLabel HorizontalPositionLabel
+   Begin WebLabel TimeOutLabel
       Cursor          =   1
       Enabled         =   True
       HasFocusRing    =   True
@@ -414,9 +414,9 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "0"
       TabOrder        =   0
-      Text            =   "Vertical Position"
+      Text            =   "Time Out"
       TextAlign       =   0
-      Top             =   130
+      Top             =   220
       VerticalCenter  =   0
       Visible         =   True
       Width           =   260
@@ -449,7 +449,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "0"
-      TabOrder        =   3
+      TabOrder        =   7
       Text            =   ""
       Top             =   152
       VerticalCenter  =   0
@@ -484,7 +484,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "1883701247"
-      TabOrder        =   4
+      TabOrder        =   11
       Top             =   354
       VerticalCenter  =   0
       Visible         =   True
@@ -517,7 +517,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "-1"
-      TabOrder        =   5
+      TabOrder        =   8
       Top             =   186
       Value           =   False
       VerticalCenter  =   0
@@ -551,7 +551,7 @@ Begin WebContainer DemoContainer
       LockVertical    =   False
       Scope           =   0
       Style           =   "0"
-      TabOrder        =   5
+      TabOrder        =   4
       Top             =   320
       Value           =   False
       VerticalCenter  =   0
@@ -566,6 +566,148 @@ Begin WebContainer DemoContainer
       _OfficialControl=   False
       _OpenEventFired =   False
       _VerticalPercent=   0.0
+   End
+   Begin WebTextField TimeOutInput
+      AutoCapitalize  =   True
+      AutoComplete    =   True
+      AutoCorrect     =   True
+      CueText         =   ""
+      Cursor          =   0
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LimitText       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      ReadOnly        =   False
+      Scope           =   0
+      Style           =   "-1"
+      TabOrder        =   9
+      Text            =   "5000"
+      TextAlign       =   0
+      Top             =   242
+      Type            =   3
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   100
+      ZIndex          =   1
+      _NeedsRendering =   True
+   End
+   Begin WebLabel ExtendedTimeOutLabel
+      Cursor          =   1
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   0
+      Text            =   "Extended Time Out"
+      TextAlign       =   0
+      Top             =   276
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
+   Begin WebTextField ExtendedTimeOutInput
+      AutoCapitalize  =   True
+      AutoComplete    =   True
+      AutoCorrect     =   True
+      CueText         =   ""
+      Cursor          =   0
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   "Number of milliseconds to extend showing of notifications after mouse over."
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LimitText       =   0
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      ReadOnly        =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   10
+      Text            =   "1000"
+      TextAlign       =   0
+      Top             =   298
+      Type            =   3
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   100
+      ZIndex          =   1
+      _NeedsRendering =   True
+   End
+   Begin WebLabel HorizontalPositionLabel
+      Cursor          =   1
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   20
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   0
+      Text            =   "Horizontal Position"
+      TextAlign       =   0
+      Top             =   130
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   260
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
    End
 End
 #tag EndWebPage
@@ -584,7 +726,15 @@ End
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
+		Event ExtendedTimeOutChanged(Value As Integer)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
 		Event HorizontalPositionChanged(Position As ToastrIJ.HorizontalPosition)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event TimeOutChanged(Value As Integer)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -670,6 +820,20 @@ End
 	#tag Event
 		Sub ValueChanged()
 		  RaiseEvent CloseButtonChanged(me.Value)
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events TimeOutInput
+	#tag Event
+		Sub TextChanged()
+		  RaiseEvent TimeOutChanged(Val(me.Text))
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events ExtendedTimeOutInput
+	#tag Event
+		Sub TextChanged()
+		  RaiseEvent ExtendedTimeOutChanged(Val(me.Text))
 		End Sub
 	#tag EndEvent
 #tag EndEvents

@@ -315,7 +315,8 @@ Inherits WebControlWrapper
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="ExtendedTimeOut"
-			Group="Behavior"
+			Visible=true
+			Group="Notification Options"
 			InitialValue="1000"
 			Type="Integer"
 		#tag EndViewProperty
@@ -411,7 +412,8 @@ Inherits WebControlWrapper
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="TimeOut"
-			Group="Behavior"
+			Visible=true
+			Group="Notification Options"
 			InitialValue="5000"
 			Type="Integer"
 		#tag EndViewProperty

@@ -139,6 +139,16 @@ End
 		  Toastr.CloseButton = Value
 		End Sub
 	#tag EndEvent
+	#tag Event
+		Sub TimeOutChanged(Value As Integer)
+		  Toastr.TimeOut = Value
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub ExtendedTimeOutChanged(Value As Integer)
+		  Toastr.ExtendedTimeOut = Value
+		End Sub
+	#tag EndEvent
 #tag EndEvents
 #tag ViewBehavior
 	#tag ViewProperty
