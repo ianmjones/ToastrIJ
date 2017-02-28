@@ -76,7 +76,7 @@ Begin WebPage MainPage
    Begin DemoContainer DemoArea
       Cursor          =   0
       Enabled         =   True
-      Height          =   410
+      Height          =   422
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
@@ -92,7 +92,7 @@ Begin WebPage MainPage
       ScrollbarsVisible=   0
       Style           =   "488470527"
       TabOrder        =   0
-      Top             =   95
+      Top             =   89
       VerticalCenter  =   0
       Visible         =   True
       Width           =   600
@@ -113,6 +113,21 @@ End
 #tag WindowCode
 #tag EndWindowCode
 
+#tag Events Toastr
+	#tag Event
+		Sub Open()
+		  //
+		  // Uncomment following to change styles of notifications.
+		  //
+		  // me.InfoStyle = DarkInfoStyle
+		  // me.SuccessStyle = DarkSuccessStyle
+		  // me.WarningStyle = DarkWarningStyle
+		  // me.ErrorStyle = DarkErrorStyle
+		  // 
+		  // me.CloseButtonStyle = DarkCloseButtonStyle
+		End Sub
+	#tag EndEvent
+#tag EndEvents
 #tag Events DemoArea
 	#tag Event
 		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean)

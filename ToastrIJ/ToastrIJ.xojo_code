@@ -1,6 +1,50 @@
 #tag Class
 Protected Class ToastrIJ
 Inherits WebControlWrapper
+	#tag Event
+		Sub SetupCSS(ByRef Styles() as WebControlCSS)
+		  AddStyles Styles, ToastrIJ.Type.Info, InfoStyle, CloseButtonStyle
+		  AddStyles Styles, ToastrIJ.Type.Success, SuccessStyle, CloseButtonStyle
+		  AddStyles Styles, ToastrIJ.Type.Warning, WarningStyle, CloseButtonStyle
+		  AddStyles Styles, ToastrIJ.Type.Error, ErrorStyle, CloseButtonStyle
+		End Sub
+	#tag EndEvent
+
+
+	#tag Method, Flags = &h21
+		Private Sub AddStyle(ByRef Styles() As WebControlCSS, Selector As String, Style As WebStyle)
+		  dim newStyles() as WebControlCSS = WebControlCSS.Convert(Style)
+		  
+		  if newStyles.Ubound > -1 then
+		    for each newStyle as WebControlCSS in newStyles
+		      // Apply given selector, optionally with modifier such as ":hover" depending on WebStyle.
+		      newStyle.Selector = selector + if(newStyle.Selector.NthField(":", 2).Trim.Len > 0, ":" + newStyle.Selector.NthField(":", 2).Trim, "")
+		      Styles.Append newStyle
+		    next
+		  end if
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Sub AddStyles(ByRef Styles() As WebControlCSS, Type As ToastrIJ.Type, Style As WebStyle, CloseButtonStyle As WebStyle = Nil)
+		  dim typeName as String = ToastrIJ.TypeNames().Value(Type).StringValue.Lowercase
+		  dim selector as String = "#toast-container .toast-" + typeName
+		  dim closeButtonSelector as String = selector + " .toast-close-button"
+		  
+		  if Style <> Nil then
+		    // Base style for background and text.
+		    AddStyle Styles, selector, Style
+		    
+		    // By default add same style to close button, optionally override.
+		    AddStyle Styles, closeButtonSelector, Style
+		  end if
+		  
+		  if CloseButtonStyle <> Nil then
+		    AddStyle Styles, closeButtonSelector, CloseButtonStyle
+		  end if
+		End Sub
+	#tag EndMethod
+
 	#tag Method, Flags = &h21
 		Private Function CleanForJS(Source As String) As String
 		  // Clean up for JavaScript and injections
@@ -224,6 +268,14 @@ Inherits WebControlWrapper
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		CloseButtonStyle As WebStyle
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		ErrorStyle As WebStyle
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		ExtendedTimeOut As Integer = 1000
 	#tag EndProperty
 
@@ -232,11 +284,23 @@ Inherits WebControlWrapper
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		InfoStyle As WebStyle
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		SuccessStyle As WebStyle
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		TimeOut As Integer = 5000
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		VerticalPosition As ToastrIJ.VerticalPosition
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		WarningStyle As WebStyle
 	#tag EndProperty
 
 

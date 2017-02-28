@@ -3,7 +3,7 @@ Begin WebContainer DemoContainer
    Compatibility   =   ""
    Cursor          =   0
    Enabled         =   True
-   Height          =   410
+   Height          =   422
    HelpTag         =   ""
    HorizontalCenter=   0
    Index           =   -2147483648
@@ -50,7 +50,7 @@ Begin WebContainer DemoContainer
       Scope           =   0
       Style           =   "169480191"
       TabOrder        =   5
-      Top             =   354
+      Top             =   366
       VerticalCenter  =   0
       Visible         =   True
       Width           =   150
@@ -76,7 +76,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
@@ -104,7 +104,7 @@ Begin WebContainer DemoContainer
       Cursor          =   0
       Enabled         =   True
       HasFocusRing    =   True
-      Height          =   100
+      Height          =   112
       HelpTag         =   ""
       HorizontalCenter=   0
       Index           =   -2147483648
@@ -112,7 +112,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   True
       LockVertical    =   False
@@ -229,7 +229,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
       LockVertical    =   False
@@ -237,7 +237,7 @@ Begin WebContainer DemoContainer
       Style           =   "-1"
       TabOrder        =   3
       Text            =   ""
-      Top             =   286
+      Top             =   298
       VerticalCenter  =   0
       Visible         =   True
       Width           =   260
@@ -263,7 +263,7 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
       LockVertical    =   False
@@ -273,7 +273,7 @@ Begin WebContainer DemoContainer
       TabOrder        =   0
       Text            =   "Type"
       TextAlign       =   0
-      Top             =   264
+      Top             =   276
       VerticalCenter  =   0
       Visible         =   True
       Width           =   260
@@ -419,7 +419,7 @@ Begin WebContainer DemoContainer
       Top             =   220
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   260
+      Width           =   130
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -475,17 +475,17 @@ Begin WebContainer DemoContainer
       HorizontalCenter=   0
       Index           =   -2147483648
       Left            =   20
-      LockBottom      =   True
+      LockBottom      =   False
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   True
       LockRight       =   False
-      LockTop         =   False
+      LockTop         =   True
       LockVertical    =   False
       Scope           =   0
       Style           =   "1883701247"
       TabOrder        =   11
-      Top             =   354
+      Top             =   366
       VerticalCenter  =   0
       Visible         =   True
       Width           =   150
@@ -545,14 +545,14 @@ Begin WebContainer DemoContainer
       LockBottom      =   True
       LockedInPosition=   False
       LockHorizontal  =   False
-      LockLeft        =   False
+      LockLeft        =   True
       LockRight       =   True
       LockTop         =   False
       LockVertical    =   False
       Scope           =   0
       Style           =   "0"
       TabOrder        =   4
-      Top             =   320
+      Top             =   332
       Value           =   False
       VerticalCenter  =   0
       Visible         =   True
@@ -588,6 +588,7 @@ Begin WebContainer DemoContainer
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      Password        =   False
       ReadOnly        =   False
       Scope           =   0
       Style           =   "-1"
@@ -600,7 +601,14 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   100
       ZIndex          =   1
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebLabel ExtendedTimeOutLabel
       Cursor          =   1
@@ -627,16 +635,16 @@ Begin WebContainer DemoContainer
       Top             =   276
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   260
+      Width           =   130
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebTextField ExtendedTimeOutInput
       AutoCapitalize  =   True
@@ -659,6 +667,7 @@ Begin WebContainer DemoContainer
       LockRight       =   False
       LockTop         =   True
       LockVertical    =   False
+      Password        =   False
       ReadOnly        =   False
       Scope           =   0
       Style           =   "0"
@@ -671,7 +680,14 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   100
       ZIndex          =   1
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
    Begin WebLabel HorizontalPositionLabel
       Cursor          =   1
@@ -700,14 +716,14 @@ Begin WebContainer DemoContainer
       Visible         =   True
       Width           =   260
       ZIndex          =   1
-      _DeclareLineRendered=   "False"
-      _HorizontalPercent=   "0.0"
-      _IsEmbedded     =   "False"
-      _Locked         =   "False"
+      _DeclareLineRendered=   False
+      _HorizontalPercent=   0.0
+      _IsEmbedded     =   False
+      _Locked         =   False
       _NeedsRendering =   True
-      _OfficialControl=   "False"
-      _OpenEventFired =   "False"
-      _VerticalPercent=   "0.0"
+      _OfficialControl=   False
+      _OpenEventFired =   False
+      _VerticalPercent=   0.0
    End
 End
 #tag EndWebPage
