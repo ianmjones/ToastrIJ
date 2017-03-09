@@ -54,6 +54,7 @@ Begin WebPage MainPage
       LockRight       =   False
       LockTop         =   False
       LockVertical    =   True
+      NewestOnTop     =   True
       Scope           =   2
       Style           =   "-1"
       TabOrder        =   -1
@@ -162,6 +163,11 @@ End
 	#tag Event
 		Sub ExtendedTimeOutChanged(Value As Integer)
 		  Toastr.ExtendedTimeOut = Value
+		End Sub
+	#tag EndEvent
+	#tag Event
+		Sub NewestOnTopChanged(Value As Boolean)
+		  Toastr.NewestOnTop = Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents

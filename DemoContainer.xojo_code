@@ -522,7 +522,7 @@ Begin WebContainer DemoContainer
       Value           =   False
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   260
+      Width           =   130
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -725,6 +725,40 @@ Begin WebContainer DemoContainer
       _OpenEventFired =   False
       _VerticalPercent=   0.0
    End
+   Begin WebCheckbox NewestOnTopCheckbox
+      Caption         =   "Newest On Top"
+      Cursor          =   1
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   "Show new notifications on top or bottom of stack."
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   150
+      LockBottom      =   False
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   False
+      LockTop         =   True
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   8
+      Top             =   186
+      Value           =   True
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   130
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
 End
 #tag EndWebPage
 
@@ -747,6 +781,10 @@ End
 
 	#tag Hook, Flags = &h0
 		Event HorizontalPositionChanged(Position As ToastrIJ.HorizontalPosition)
+	#tag EndHook
+
+	#tag Hook, Flags = &h0
+		Event NewestOnTopChanged(Value As Boolean)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -850,6 +888,13 @@ End
 	#tag Event
 		Sub TextChanged()
 		  RaiseEvent ExtendedTimeOutChanged(Val(me.Text))
+		End Sub
+	#tag EndEvent
+#tag EndEvents
+#tag Events NewestOnTopCheckbox
+	#tag Event
+		Sub ValueChanged()
+		  RaiseEvent NewestOnTopChanged(me.Value)
 		End Sub
 	#tag EndEvent
 #tag EndEvents
