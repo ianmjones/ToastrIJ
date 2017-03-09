@@ -120,6 +120,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ## Version History
 
+1.1 2017-03-??
+
+* Added NewestOnTop boolean property to enable showing new notifications either at the top of the stack (default) or bottom.
+
 1.0 2017-03-02
 
 * Initial public release.
