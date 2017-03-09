@@ -138,6 +138,9 @@ Inherits WebControlWrapper
 		    js = js + "toastr.options.extendedTimeOut = " + Str(ExtendedTimeOut) + ";"
 		  end if
 		  
+		  // Add new notifications to top or bottom of stack?
+		  js = js + "toastr.options.newestOnTop =" + Str(NewestOnTop).Lowercase + ";"
+		  
 		  // Set type of the notification.
 		  dim toastrType as String = "info"
 		  
@@ -285,6 +288,10 @@ Inherits WebControlWrapper
 
 	#tag Property, Flags = &h0
 		InfoStyle As WebStyle
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		NewestOnTop As Boolean = True
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -462,6 +469,13 @@ Inherits WebControlWrapper
 			Visible=true
 			Group="ID"
 			Type="String"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="NewestOnTop"
+			Visible=true
+			Group="Notification Options"
+			InitialValue="True"
+			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Super"
