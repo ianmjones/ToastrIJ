@@ -3,10 +3,10 @@ Protected Class ToastrIJ
 Inherits WebControlWrapper
 	#tag Event
 		Sub SetupCSS(ByRef Styles() as WebControlCSS)
-		  AddStyles Styles, ToastrIJ.Type.Info, InfoStyle, CloseButtonStyle
-		  AddStyles Styles, ToastrIJ.Type.Success, SuccessStyle, CloseButtonStyle
-		  AddStyles Styles, ToastrIJ.Type.Warning, WarningStyle, CloseButtonStyle
-		  AddStyles Styles, ToastrIJ.Type.Error, ErrorStyle, CloseButtonStyle
+		  AddStyles Styles, ToastrIJ.Type.Info, InfoStyle, CloseButtonStyle, InfoIcon
+		  AddStyles Styles, ToastrIJ.Type.Success, SuccessStyle, CloseButtonStyle, SuccessIcon
+		  AddStyles Styles, ToastrIJ.Type.Warning, WarningStyle, CloseButtonStyle, WarningIcon
+		  AddStyles Styles, ToastrIJ.Type.Error, ErrorStyle, CloseButtonStyle, ErrorIcon
 		End Sub
 	#tag EndEvent
 
@@ -26,7 +26,7 @@ Inherits WebControlWrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
-		Private Sub AddStyles(ByRef Styles() As WebControlCSS, Type As ToastrIJ.Type, Style As WebStyle, CloseButtonStyle As WebStyle = Nil)
+		Private Sub AddStyles(ByRef Styles() As WebControlCSS, Type As ToastrIJ.Type, Style As WebStyle, CloseButtonStyle As WebStyle = Nil, Icon As Picture = Nil)
 		  dim typeName as String = ToastrIJ.TypeNames().Value(Type).StringValue.Lowercase
 		  dim selector as String = "#toast-container .toast-" + typeName
 		  dim closeButtonSelector as String = selector + " .toast-close-button"
@@ -41,6 +41,13 @@ Inherits WebControlWrapper
 		  
 		  if CloseButtonStyle <> Nil then
 		    AddStyle Styles, closeButtonSelector, CloseButtonStyle
+		  end if
+		  
+		  if Icon <> Nil then
+		    dim iconStyle as new WebControlCSS
+		    iconStyle.Selector = selector
+		    iconStyle.Value("background-image") = GetIconURL(Icon)
+		    Styles.Append iconStyle
 		  end if
 		End Sub
 	#tag EndMethod
@@ -169,6 +176,23 @@ Inherits WebControlWrapper
 		End Sub
 	#tag EndMethod
 
+	#tag Method, Flags = &h21
+		Private Function GetIconURL(Icon As Picture) As String
+		  dim url as string
+		  dim mb as MemoryBlock = Icon.GetData(Picture.FormatPNG, 100)
+		  
+		  if mb <> nil then
+		    url = EncodeBase64(mb.StringValue(0, mb.Size), 0)
+		  end if
+		  
+		  if url.Len > 0 then
+		    url = "url(data:image/png;base64," + url + ")!important"
+		  end if
+		  
+		  return url
+		End Function
+	#tag EndMethod
+
 	#tag Method, Flags = &h0
 		Shared Function HorizontalPositionNames() As Dictionary
 		  dim positions as new Dictionary
@@ -275,6 +299,10 @@ Inherits WebControlWrapper
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		ErrorIcon As Picture
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		ErrorStyle As WebStyle
 	#tag EndProperty
 
@@ -287,11 +315,19 @@ Inherits WebControlWrapper
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
+		InfoIcon As Picture
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
 		InfoStyle As WebStyle
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
 		NewestOnTop As Boolean = True
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		SuccessIcon As Picture
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -304,6 +340,10 @@ Inherits WebControlWrapper
 
 	#tag Property, Flags = &h0
 		VerticalPosition As ToastrIJ.VerticalPosition
+	#tag EndProperty
+
+	#tag Property, Flags = &h0
+		WarningIcon As Picture
 	#tag EndProperty
 
 	#tag Property, Flags = &h0
@@ -385,6 +425,12 @@ Inherits WebControlWrapper
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="ErrorIcon"
+			Visible=true
+			Group="Notification Icons"
+			Type="Picture"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="ExtendedTimeOut"
 			Visible=true
 			Group="Notification Options"
@@ -428,6 +474,12 @@ Inherits WebControlWrapper
 			Group="ID"
 			InitialValue="-2147483648"
 			Type="Integer"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="InfoIcon"
+			Visible=true
+			Group="Notification Icons"
+			Type="Picture"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Left"
@@ -478,6 +530,12 @@ Inherits WebControlWrapper
 			Type="Boolean"
 		#tag EndViewProperty
 		#tag ViewProperty
+			Name="SuccessIcon"
+			Visible=true
+			Group="Notification Icons"
+			Type="Picture"
+		#tag EndViewProperty
+		#tag ViewProperty
 			Name="Super"
 			Visible=true
 			Group="ID"
@@ -520,6 +578,12 @@ Inherits WebControlWrapper
 			Name="Visible"
 			Group="Behavior"
 			Type="Boolean"
+		#tag EndViewProperty
+		#tag ViewProperty
+			Name="WarningIcon"
+			Visible=true
+			Group="Notification Icons"
+			Type="Picture"
 		#tag EndViewProperty
 		#tag ViewProperty
 			Name="Width"
