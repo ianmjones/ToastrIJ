@@ -24,7 +24,7 @@ Open the **ToastrIJ** project and copy the `ToastrIJ` folder, or just the `Toast
 Drag the `ToastrIJ` control onto your page and give it a useful name such as `Toastr`. It'll sit in the page's tray as it can not be positioned on the page.
 
 ### Inspector
-In the inspector you can change some **Notification Options** and the **Notification Position** settings. All of these options can also be set programatically.
+In the inspector you can change some default **Notification Options**, **Notification Icons** and the **Notification Position** settings. All of these options can also be set programatically.
 
 ![ToastrIJ Inspector](https://raw.githubusercontent.com/ianmjones/ToastrIJ/master/Assets/ToastrIJ%20-%20Inspector.png)
 
@@ -34,8 +34,14 @@ Whether or not every notification should have a close button, regardless of whet
 #### ExtendedTimeOut
 How long does rolling the mouse over a notification extend how long it takes before it fades away. Default is 1 second (1,000 miliseconds).
 
+#### NewestOnTop
+Should new notifications appear at the top of the stack (default) or bottom.
+
 #### TimeOut
 How long until a non-sticky notification fades away. Default is 5 seconds (5,000 miliseconds).
+
+#### ErrorIcon / InfoIcon / SuccessIcon / WarningIcon
+Specify a `Picture` to be used in place of the default icon for the respective notification type. For best results icons should be no greater than 24x24px.
 
 #### HorizontalPosition
 Can be `Left`, `Center`, `Right` or `Full Width`. Default is `Right`.
@@ -122,7 +128,8 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 1.1 2017-03-??
 
-* Added NewestOnTop boolean property to enable showing new notifications either at the top of the stack (default) or bottom.
+* Added `InfoIcon`, `SuccessIcon`, `WarningIcon` and `ErrorIcon` properties that can be used to set custom icons.
+* Added `NewestOnTop` boolean property to enable showing new notifications either at the top of the stack (default) or bottom.
 
 1.0 2017-03-02
 
