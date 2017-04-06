@@ -67,11 +67,13 @@ There are four types:
     ToastrIJ.Type.Warning
     ToastrIJ.Type.Error
 
-There are two signatures for the `Display` method:
+There are three signatures for the `Display` method:
 
     Public Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Sticky As Boolean = False)
+
+    Public Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Icon As Picture)
     
-    Public Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "", Sticky As Boolean = False)
+    Public Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "", Sticky As Boolean = False, Icon As Picture = Nil)
 
 ### Clearing Notifications
 If you need to clear all notifications in one fell swoop, use:
@@ -126,9 +128,10 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 ## Version History
 
-1.1 2017-03-??
+1.1 2017-04-07
 
 * Added `InfoIcon`, `SuccessIcon`, `WarningIcon` and `ErrorIcon` properties that can be used to set custom icons.
+* Added `Icon` parameter to `Toastr.Display` method to allow a custom icon to be set.
 * Added `NewestOnTop` boolean property to enable showing new notifications either at the top of the stack (default) or bottom.
 
 1.0 2017-03-02
