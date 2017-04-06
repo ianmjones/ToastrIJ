@@ -546,7 +546,7 @@ Begin WebContainer DemoContainer
       LockedInPosition=   False
       LockHorizontal  =   False
       LockLeft        =   True
-      LockRight       =   True
+      LockRight       =   False
       LockTop         =   False
       LockVertical    =   False
       Scope           =   0
@@ -556,7 +556,7 @@ Begin WebContainer DemoContainer
       Value           =   False
       VerticalCenter  =   0
       Visible         =   True
-      Width           =   260
+      Width           =   69
       ZIndex          =   1
       _DeclareLineRendered=   False
       _HorizontalPercent=   0.0
@@ -759,6 +759,40 @@ Begin WebContainer DemoContainer
       _OpenEventFired =   False
       _VerticalPercent=   0.0
    End
+   Begin WebCheckbox CustomIconCheckbox
+      Caption         =   "Custom Icon"
+      Cursor          =   1
+      Enabled         =   True
+      Height          =   22
+      HelpTag         =   "Make notification stick around until closed."
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   401
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockHorizontal  =   False
+      LockLeft        =   True
+      LockRight       =   True
+      LockTop         =   False
+      LockVertical    =   False
+      Scope           =   0
+      Style           =   "0"
+      TabOrder        =   4
+      Top             =   332
+      Value           =   False
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   179
+      ZIndex          =   1
+      _DeclareLineRendered=   "False"
+      _HorizontalPercent=   "0.0"
+      _IsEmbedded     =   "False"
+      _Locked         =   "False"
+      _NeedsRendering =   True
+      _OfficialControl=   "False"
+      _OpenEventFired =   "False"
+      _VerticalPercent=   "0.0"
+   End
 End
 #tag EndWebPage
 
@@ -772,7 +806,7 @@ End
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
-		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean)
+		Event DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean, CustomIcon As Boolean)
 	#tag EndHook
 
 	#tag Hook, Flags = &h0
@@ -801,7 +835,7 @@ End
 #tag Events DisplayButton
 	#tag Event
 		Sub Action()
-		  RaiseEvent DisplayMessage MessageInput.Text, TypeInput.RowTag(TypeInput.ListIndex), TitleInput.Text, StickyCheckbox.Value
+		  RaiseEvent DisplayMessage MessageInput.Text, TypeInput.RowTag(TypeInput.ListIndex), TitleInput.Text, StickyCheckbox.Value, CustomIconCheckbox.Value
 		End Sub
 	#tag EndEvent
 #tag EndEvents
