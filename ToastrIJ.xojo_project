@@ -19,6 +19,7 @@ Folder=ToastrIJ;ToastrIJ;&h7AD57FF;&h0;false
 Class=ToastrIJ;ToastrIJ/ToastrIJ.xojo_code;&h76FCA7FF;&h7AD57FF;false
 WebStyle=DarkErrorStyle;DemoStyles/DarkErrorStyle.xojo_code;&hDBED7FF;&h723EFFF;false
 WebStyle=DarkCloseButtonStyle;DemoStyles/DarkCloseButtonStyle.xojo_code;&h521177FF;&h723EFFF;false
+MultiImage=ToasterIcon;ToasterIcon.xojo_image;&h32E797FF;&h0;false
 DefaultWindow=MainPage
 MajorVersion=1
 MinorVersion=1

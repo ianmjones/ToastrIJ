@@ -1,0 +1,40 @@
+#tag MultiImage
+Image ToasterIcon
+	#tag ImageRepresentation
+		SaveInfo = APHRcwECAQAAAAHOAAAAAAHOAAIAAAxNYWNpbnRvc2ggSEQAAAAAAAAAAAAAAAAAAADTpjl9SCsAAAC0SOMVVG9hc3Rlci1GaWxsZWQtMjQucG5nAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANL4R9UMdx0AAAAAAAAAAP////8AAAkgAAAAAAAAAAAAAAAAAAAABkFzc2V0cwAQAAgAANOmK20AAAARAAgAANUMaQ0AAAABABgAtEjjAKjbeQANteMADJ7RAAmESAAGMOIAAgBTTWFjaW50b3NoIEhEOlVzZXJzOgBpYW46AERyb3Bib3g6AFByb2plY3RzOgBUb2FzdHJJSjoAQXNzZXRzOgBUb2FzdGVyLUZpbGxlZC0yNC5wbmcAAA4ALAAVAFQAbwBhAHMAdABlAHIALQBGAGkAbABsAGUAZAAtADIANAAuAHAAbgBnAA8AGgAMAE0AYQBjAGkAbgB0AG8AcwBoACAASABEABIAQFVzZXJzL2lhbi9Ecm9wYm94L1Byb2plY3RzL1RvYXN0cklKL0Fzc2V0cy9Ub2FzdGVyLUZpbGxlZC0yNC5wbmcAEwABLwAAFQACAAr//wAAAAAAAAAA
+		FullPath = /Users/ian/Dropbox/Projects/ToastrIJ/Assets/Toaster-Filled-24.png
+		PartialPath = Assets\Toaster-Filled-24.png
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 24.00
+			Orientation = Any
+			Platform = 15
+			PPI = 72
+			VSize = 24.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 24.00
+			Orientation = Any
+			Platform = 15
+			PPI = 144
+			VSize = 24.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+	#tag ImageRepresentation
+		#tag ImageSpecification
+			Comment = 
+			Device = 31
+			HSize = 24.00
+			Orientation = Any
+			Platform = 15
+			PPI = 216
+			VSize = 24.00
+		#tag EndImageSpecification
+	#tag EndImageRepresentation
+End Image
+#tag EndMultiImage

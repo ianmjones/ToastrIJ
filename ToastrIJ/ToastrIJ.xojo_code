@@ -27,8 +27,7 @@ Inherits WebControlWrapper
 
 	#tag Method, Flags = &h21
 		Private Sub AddStyles(ByRef Styles() As WebControlCSS, Type As ToastrIJ.Type, Style As WebStyle, CloseButtonStyle As WebStyle = Nil, Icon As Picture = Nil)
-		  dim typeName as String = ToastrIJ.TypeNames().Value(Type).StringValue.Lowercase
-		  dim selector as String = "#toast-container .toast-" + typeName
+		  dim selector as String = "#toast-container .toast-" + GetTypeName(Type).Lowercase
 		  dim closeButtonSelector as String = selector + " .toast-close-button"
 		  
 		  if Style <> Nil then
@@ -127,8 +126,14 @@ Inherits WebControlWrapper
 	#tag EndMethod
 
 	#tag Method, Flags = &h0
-		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "", Sticky As Boolean = False)
-		  dim js as String
+		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Icon As Picture)
+		  Display(Message, Type, "", False, Icon)
+		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h0
+		Sub Display(Message As String, Type As ToastrIJ.Type = ToastrIJ.Type.Info, Title As String = "", Sticky As Boolean = False, icon As Picture = Nil)
+		  dim js as String = "var optionsOverride = {};"
 		  
 		  // Set position of the notification.
 		  js = js + "toastr.options.positionClass = '" + DerivePositionClass + "';"
@@ -148,32 +153,39 @@ Inherits WebControlWrapper
 		  // Add new notifications to top or bottom of stack?
 		  js = js + "toastr.options.newestOnTop =" + Str(NewestOnTop).Lowercase + ";"
 		  
-		  // Set type of the notification.
-		  dim toastrType as String = "info"
+		  // Custom icon?
+		  if Icon <> Nil then
+		    js = js + GetCustomIconJS(Type, Icon)
+		  end if
 		  
-		  select case Type
-		  case ToastrIJ.Type.Success
-		    toastrType = "success"
-		    
-		  case ToastrIJ.Type.Warning
-		    toastrType = "warning"
-		    
-		  case ToastrIJ.Type.Error
-		    toastrType = "error"
-		    
-		  end select
+		  // Set type of the notification.
+		  dim toastrType as String = GetTypeName(Type).Lowercase
 		  
 		  // Construct notification.
 		  js = js + "toastr." + toastrType + "('" + PrepareMessage(Message) + "'"
-		  
-		  if Title.Trim.Len > 0 then
-		    js = js + ", '" + PrepareTitle(Title) + "'"
-		  end if
-		  
+		  js = js + ", '" + PrepareTitle(Title) + "'"
+		  js = js + ", optionsOverride"
 		  js = js + ");"
 		  
 		  ExecuteJavaScript js
 		End Sub
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function GetCustomIconJS(Type As ToastrIJ.Type, Icon As Picture) As String
+		  me.IconID = me.IconID + 1
+		  
+		  dim toastrType as String = GetTypeName(Type).Lowercase
+		  dim js As String = "optionsOverride.iconClass = 'toast-" + toastrType + " toast-icon-" + Str(me.IconID) + "';"
+		  
+		  js = js + "var newStyle = document.createElement('style');"
+		  js = js + "newStyle.id = 'toast-icon-" + Str(me.IconID) + "';"
+		  js = js + "var newCSS = document.createTextNode('#toast-container>.toast-" + toastrType + ".toast-icon-" + Str(me.IconID) + " { background-image: " + GetIconURL(Icon) + " !important; }');"
+		  js = js + "newStyle.append(newCSS);"
+		  js = js + "document.head.append(newStyle);"
+		  
+		  return js
+		End Function
 	#tag EndMethod
 
 	#tag Method, Flags = &h21
@@ -186,10 +198,16 @@ Inherits WebControlWrapper
 		  end if
 		  
 		  if url.Len > 0 then
-		    url = "url(data:image/png;base64," + url + ")!important"
+		    url = "url(data:image/png;base64," + url + ")"
 		  end if
 		  
 		  return url
+		End Function
+	#tag EndMethod
+
+	#tag Method, Flags = &h21
+		Private Function GetTypeName(Type As ToastrIJ.Type) As String
+		  return me.TypeNames().Value(Type).StringValue
 		End Function
 	#tag EndMethod
 
@@ -312,6 +330,10 @@ Inherits WebControlWrapper
 
 	#tag Property, Flags = &h0
 		HorizontalPosition As ToastrIJ.HorizontalPosition
+	#tag EndProperty
+
+	#tag Property, Flags = &h21
+		Private IconID As Integer = 0
 	#tag EndProperty
 
 	#tag Property, Flags = &h0

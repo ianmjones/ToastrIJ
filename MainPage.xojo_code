@@ -112,6 +112,37 @@ Begin WebPage MainPage
       _ShownEventFired=   False
       _VerticalPercent=   0.0
    End
+   Begin WebLink Icons8Link
+      Cursor          =   0
+      Enabled         =   True
+      HasFocusRing    =   True
+      Height          =   22
+      HelpTag         =   ""
+      HorizontalCenter=   0
+      Index           =   -2147483648
+      Left            =   300
+      LockBottom      =   True
+      LockedInPosition=   False
+      LockHorizontal  =   True
+      LockLeft        =   False
+      LockRight       =   False
+      LockTop         =   False
+      LockVertical    =   False
+      Multiline       =   False
+      Scope           =   0
+      Style           =   "-1"
+      TabOrder        =   1
+      Target          =   2
+      Text            =   "Custom Icon from Icons8"
+      TextAlign       =   2
+      Top             =   558
+      URL             =   "https://icons8.com/web-app/13889/Toaster#filled"
+      VerticalCenter  =   0
+      Visible         =   True
+      Width           =   200
+      ZIndex          =   1
+      _NeedsRendering =   True
+   End
 End
 #tag EndWebPage
 
@@ -135,8 +166,14 @@ End
 #tag EndEvents
 #tag Events DemoArea
 	#tag Event
-		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean)
-		  Toastr.Display Message, Type, Title, Sticky
+		Sub DisplayMessage(Message As String, Type As ToastrIJ.Type, Title As String, Sticky As Boolean, CustomIcon As Boolean)
+		  dim pic As Picture
+		  
+		  if CustomIcon then
+		    pic = ToasterIcon
+		  end if
+		  
+		  Toastr.Display Message, Type, Title, Sticky, pic
 		End Sub
 	#tag EndEvent
 	#tag Event
